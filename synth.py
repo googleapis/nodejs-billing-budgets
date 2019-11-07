@@ -26,6 +26,9 @@ versions = ['v1beta1']
 for version in versions:
   library = gapic.typescript_library(
     'billingbudgets',
+    generator_args={
+      "grpc-service-config": f"google/cloud/billing/budgets/{version}/billingbudgets_grpc_service_config.json"
+    },
     proto_path=f"google/cloud/billing/budgets/{version}",
     version=version)
   s.copy(library, excludes=[])
