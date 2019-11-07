@@ -1,0 +1,31 @@
+{
+  "updateTime": "2019-11-07T22:51:30.003866Z",
+  "sources": [
+    {
+      "git": {
+        "name": "googleapis",
+        "remote": "https://github.com/googleapis/googleapis.git",
+        "sha": "a34950f968c7944a1036551b545557edcc18c767",
+        "internalRef": "279171061"
+      }
+    },
+    {
+      "template": {
+        "name": "node_library",
+        "origin": "synthtool.gcp",
+        "version": "2019.10.17"
+      }
+    }
+  ],
+  "destinations": [
+    {
+      "client": {
+        "source": "googleapis",
+        "apiName": "billingbudgets",
+        "apiVersion": "v1beta1",
+        "language": "typescript",
+        "generator": "gapic-generator-typescript"
+      }
+    }
+  ]
+}
