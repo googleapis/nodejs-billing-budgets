@@ -39,7 +39,7 @@
     "system-test": "c8 mocha --timeout=15000 system-test/*.js",
     "samples-test": "cd samples/ && npm link ../ && npm test && cd ../",
     "predocs-test": "npm run docs",
-    "docs-test": "linkinator docs -r --skip 'www.npmjs.org/package/@google-cloud/cloudbuild|googleapis.dev.*|github.com.*'"
+    "docs-test": "linkinator docs"
   },
   "license": "Apache-2.0",
   "engines": {
