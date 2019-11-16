@@ -55,21 +55,24 @@ npm install @google-cloud/billing-budgets
 ### Using the client library
 
 ```javascript
-async function quickstart(
-  billingAccount = 'YOUR_BILLING_ACCOUNT' // e.g., billingAccounts/000000-000000-000000
-) {
+
+  // const billingAccount = 'billingAccounts/000000-000000-000000'
+
   // Imports the Google Cloud client library
   const {BudgetServiceClient} = require('@google-cloud/billing-budgets');
 
   // Creates a client
   const budget = new BudgetServiceClient();
 
-  // List budgets for a billing account
-  const [result] = await budget.listBudgets({
-    parent: billingAccount,
-  });
-  console.info(result);
-}
+  async function quickstart() {
+    // List budgets for a billing account
+    const [result] = await budget.listBudgets({
+      parent: billingAccount,
+    });
+    console.info(result);
+  }
+
+  quickstart();
 
 ```
 ### Using TypeScript

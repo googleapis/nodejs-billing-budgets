@@ -15,26 +15,31 @@
 
 'use strict';
 
-// [START billingbudgets_quickstart]
-async function quickstart(
-  billingAccount = 'YOUR_BILLING_ACCOUNT' // e.g., billingAccounts/000000-000000-000000
-) {
+async function main(billingAccount = 'billingAccounts/000000-000000-000000') {
+  // [START billingbudgets_quickstart]
+
+  // const billingAccount = 'billingAccounts/000000-000000-000000'
+
   // Imports the Google Cloud client library
   const {BudgetServiceClient} = require('@google-cloud/billing-budgets');
 
   // Creates a client
   const budget = new BudgetServiceClient();
 
-  // List budgets for a billing account
-  const [result] = await budget.listBudgets({
-    parent: billingAccount,
-  });
-  console.info(result);
+  async function quickstart() {
+    // List budgets for a billing account
+    const [result] = await budget.listBudgets({
+      parent: billingAccount,
+    });
+    console.info(result);
+  }
+
+  quickstart();
+  // [END billingbudgets_quickstart]
 }
-// [END billingbudgets_quickstart]
 
 const args = process.argv.slice(2);
-quickstart(...args).catch(err => {
+main(...args).catch(err => {
   console.error(err.message);
   process.exitCode = 1;
 });
