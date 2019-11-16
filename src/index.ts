@@ -17,6 +17,8 @@
 // ** All changes to this file may be overwritten. **
 
 import * as v1beta1 from './v1beta1';
-export {v1beta1};
 const BudgetServiceClient = v1beta1.BudgetServiceClient;
-export {BudgetServiceClient};
+export {v1beta1, BudgetServiceClient};
+// For compatibility with JavaScript libraries we need to provide this default export:
+// tslint:disable-next-line no-default-export
+export default {v1beta1, BudgetServiceClient};

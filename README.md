@@ -74,7 +74,7 @@ async function quickstart(
 ```
 ### Using TypeScript
 
-`@google-cloud/cloudbuild` provides TypeScript type definitions.
+`@google-cloud/billing-budgets` provides TypeScript type definitions.
 
 
 ## Samples

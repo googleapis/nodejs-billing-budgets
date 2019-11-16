@@ -22,6 +22,7 @@
     "jsdoc-fresh": "^1.0.2",
     "linkinator": "^1.4.0",
     "mocha": "^6.1.4",
+    "pack-n-play": "^1.0.0-2",
     "prettier": "^1.17.0",
     "typescript": "~3.6.0"
   },
@@ -30,7 +31,7 @@
     "docs": "jsdoc -c .jsdoc.js",
     "lint": "gts check && eslint .",
     "clean": "gts clean",
-    "fix": "gts fix && eslint . --fix",
+    "fix": "eslint . --fix && gts fix",
     "compile": "tsc -p . && cp -r protos build/",
     "compile-protos": "compileProtos src",
     "prepare": "npm run compile-protos && npm run compile",
