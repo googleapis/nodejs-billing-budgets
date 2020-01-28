@@ -1,20 +1,23 @@
 {
-  "updateTime": "2020-01-24T12:12:31.629407Z",
+  "updateTime": "2020-01-28T00:12:47.970364Z",
   "sources": [
+    {
+      "git": {
+        "name": ".",
+        "remote": "git@github.com:googleapis/nodejs-billing-budgets.git",
+        "sha": "1098b0adf389be0bef1de6fbefd20b1828dac080"
+      }
+    },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "e26cab8afd19d396b929039dac5d874cf0b5336c",
-        "internalRef": "291240093"
+        "sha": "8e981acfd9b97ea2f312f11bbaa7b6c16e412dea",
+        "internalRef": "291821782"
       }
     },
     {
-      "template": {
-        "name": "node_library",
-        "origin": "synthtool.gcp",
-        "version": "2019.10.17"
-      }
+      "git": {}
     }
   ],
   "destinations": [
@@ -48,13 +51,7 @@
       "path": ".github/PULL_REQUEST_TEMPLATE.md"
     },
     {
-      "path": ".github/publish.yml"
-    },
-    {
       "path": ".github/release-please.yml"
-    },
-    {
-      "path": ".gitignore"
     },
     {
       "path": ".jsdoc.js"
@@ -171,15 +168,6 @@
       "path": ".prettierrc"
     },
     {
-      "path": ".readme-partials.yml"
-    },
-    {
-      "path": ".repo-metadata.json"
-    },
-    {
-      "path": "CHANGELOG.md"
-    },
-    {
       "path": "CODE_OF_CONDUCT.md"
     },
     {
@@ -193,12 +181,6 @@
     },
     {
       "path": "codecov.yaml"
-    },
-    {
-      "path": "linkinator.config.json"
-    },
-    {
-      "path": "package.json"
     },
     {
       "path": "protos/google/cloud/billing/budgets/v1beta1/budget_model.proto"
@@ -222,18 +204,6 @@
       "path": "samples/README.md"
     },
     {
-      "path": "samples/package.json"
-    },
-    {
-      "path": "samples/quickstart.js"
-    },
-    {
-      "path": "samples/system-test/.eslintrc.yml"
-    },
-    {
-      "path": "samples/system-test/samples.js"
-    },
-    {
       "path": "src/index.ts"
     },
     {
@@ -249,16 +219,7 @@
       "path": "src/v1beta1/index.ts"
     },
     {
-      "path": "synth.py"
-    },
-    {
-      "path": "system-test/.eslintrc.yml"
-    },
-    {
       "path": "system-test/install.ts"
-    },
-    {
-      "path": "system-test/system.js"
     },
     {
       "path": "test/gapic-budget_service-v1beta1.ts"
@@ -268,9 +229,6 @@
     },
     {
       "path": "tslint.json"
-    },
-    {
-      "path": "webpack.config.js"
     }
   ]
 }
