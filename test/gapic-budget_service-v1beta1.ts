@@ -18,314 +18,298 @@
 
 import * as protosTypes from '../protos/protos';
 import * as assert from 'assert';
-import {describe, it} from 'mocha';
+import { describe, it } from 'mocha';
 const budgetserviceModule = require('../src');
 
+
 const FAKE_STATUS_CODE = 1;
-class FakeError {
-  name: string;
-  message: string;
-  code: number;
-  constructor(n: number) {
-    this.name = 'fakeName';
-    this.message = 'fake message';
-    this.code = n;
-  }
+class FakeError{
+    name: string;
+    message: string;
+    code: number;
+    constructor(n: number){
+        this.name = 'fakeName';
+        this.message = 'fake message';
+        this.code = n;
+    }
 }
 const error = new FakeError(FAKE_STATUS_CODE);
 export interface Callback {
-  (err: FakeError | null, response?: {} | null): void;
+  (err: FakeError|null, response?: {} | null): void;
 }
 
-export class Operation {
-  constructor() {}
-  promise() {}
+export class Operation{
+    constructor(){};
+    promise() {};
 }
-function mockSimpleGrpcMethod(
-  expectedRequest: {},
-  response: {} | null,
-  error: FakeError | null
-) {
-  return (actualRequest: {}, options: {}, callback: Callback) => {
-    assert.deepStrictEqual(actualRequest, expectedRequest);
-    if (error) {
-      callback(error);
-    } else if (response) {
-      callback(null, response);
-    } else {
-      callback(null);
-    }
-  };
+function mockSimpleGrpcMethod(expectedRequest: {}, response: {} | null, error: FakeError | null) {
+    return (actualRequest: {}, options: {}, callback: Callback) => {
+        assert.deepStrictEqual(actualRequest, expectedRequest);
+        if (error) {
+            callback(error);
+        } else if (response) {
+            callback(null, response);
+        } else {
+            callback(null);
+        }
+    };
 }
 describe('v1beta1.BudgetServiceClient', () => {
-  it('has servicePath', () => {
-    const servicePath =
-      budgetserviceModule.v1beta1.BudgetServiceClient.servicePath;
-    assert(servicePath);
-  });
-  it('has apiEndpoint', () => {
-    const apiEndpoint =
-      budgetserviceModule.v1beta1.BudgetServiceClient.apiEndpoint;
-    assert(apiEndpoint);
-  });
-  it('has port', () => {
-    const port = budgetserviceModule.v1beta1.BudgetServiceClient.port;
-    assert(port);
-    assert(typeof port === 'number');
-  });
-  it('should create a client with no option', () => {
-    const client = new budgetserviceModule.v1beta1.BudgetServiceClient();
-    assert(client);
-  });
-  it('should create a client with gRPC fallback', () => {
-    const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-      fallback: true,
+    it('has servicePath', () => {
+        const servicePath = budgetserviceModule.v1beta1.BudgetServiceClient.servicePath;
+        assert(servicePath);
     });
-    assert(client);
-  });
-  describe('createBudget', () => {
-    it('invokes createBudget without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.ICreateBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.createBudget = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.createBudget(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
+    it('has apiEndpoint', () => {
+        const apiEndpoint = budgetserviceModule.v1beta1.BudgetServiceClient.apiEndpoint;
+        assert(apiEndpoint);
     });
-
-    it('invokes createBudget with error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.ICreateBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.createBudget = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.createBudget(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
+    it('has port', () => {
+        const port = budgetserviceModule.v1beta1.BudgetServiceClient.port;
+        assert(port);
+        assert(typeof port === 'number');
     });
-  });
-  describe('updateBudget', () => {
-    it('invokes updateBudget without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IUpdateBudgetRequest = {};
-      request.budget = {};
-      request.budget.name = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.updateBudget = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.updateBudget(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
+    it('should create a client with no option', () => {
+        const client = new budgetserviceModule.v1beta1.BudgetServiceClient();
+        assert(client);
     });
-
-    it('invokes updateBudget with error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IUpdateBudgetRequest = {};
-      request.budget = {};
-      request.budget.name = '';
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.updateBudget = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.updateBudget(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
-    });
-  });
-  describe('getBudget', () => {
-    it('invokes getBudget without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IGetBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.getBudget = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.getBudget(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
-
-    it('invokes getBudget with error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IGetBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.getBudget = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.getBudget(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
-    });
-  });
-  describe('deleteBudget', () => {
-    it('invokes deleteBudget without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IDeleteBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.deleteBudget = mockSimpleGrpcMethod(
-        request,
-        expectedResponse,
-        null
-      );
-      client.deleteBudget(request, (err: {}, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
-
-    it('invokes deleteBudget with error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IDeleteBudgetRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock gRPC layer
-      client._innerApiCalls.deleteBudget = mockSimpleGrpcMethod(
-        request,
-        null,
-        error
-      );
-      client.deleteBudget(request, (err: FakeError, response: {}) => {
-        assert(err instanceof FakeError);
-        assert.strictEqual(err.code, FAKE_STATUS_CODE);
-        assert(typeof response === 'undefined');
-        done();
-      });
-    });
-  });
-  describe('listBudgets', () => {
-    it('invokes listBudgets without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IListBudgetsRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock Grpc layer
-      client._innerApiCalls.listBudgets = (
-        actualRequest: {},
-        options: {},
-        callback: Callback
-      ) => {
-        assert.deepStrictEqual(actualRequest, request);
-        callback(null, expectedResponse);
-      };
-      client.listBudgets(request, (err: FakeError, response: {}) => {
-        assert.ifError(err);
-        assert.deepStrictEqual(response, expectedResponse);
-        done();
-      });
-    });
-  });
-  describe('listBudgetsStream', () => {
-    it('invokes listBudgetsStream without error', done => {
-      const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
-        credentials: {client_email: 'bogus', private_key: 'bogus'},
-        projectId: 'bogus',
-      });
-      // Mock request
-      const request: protosTypes.google.cloud.billing.budgets.v1beta1.IListBudgetsRequest = {};
-      // Mock response
-      const expectedResponse = {};
-      // Mock Grpc layer
-      client._innerApiCalls.listBudgets = (
-        actualRequest: {},
-        options: {},
-        callback: Callback
-      ) => {
-        assert.deepStrictEqual(actualRequest, request);
-        callback(null, expectedResponse);
-      };
-      const stream = client
-        .listBudgetsStream(request, {})
-        .on('data', (response: {}) => {
-          assert.deepStrictEqual(response, expectedResponse);
-          done();
-        })
-        .on('error', (err: FakeError) => {
-          done(err);
+    it('should create a client with gRPC fallback', () => {
+        const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+            fallback: true,
         });
-      stream.write(request);
+        assert(client);
     });
-  });
+    describe('createBudget', () => {
+        it('invokes createBudget without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.ICreateBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.createBudget = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.createBudget(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
+
+        it('invokes createBudget with error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.ICreateBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.createBudget = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.createBudget(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
+    });
+    describe('updateBudget', () => {
+        it('invokes updateBudget without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IUpdateBudgetRequest = {};
+            request.budget = {};
+            request.budget.name = '';
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.updateBudget = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.updateBudget(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
+
+        it('invokes updateBudget with error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IUpdateBudgetRequest = {};
+            request.budget = {};
+            request.budget.name = '';
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.updateBudget = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.updateBudget(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
+    });
+    describe('getBudget', () => {
+        it('invokes getBudget without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IGetBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.getBudget = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.getBudget(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
+
+        it('invokes getBudget with error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IGetBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.getBudget = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.getBudget(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
+    });
+    describe('deleteBudget', () => {
+        it('invokes deleteBudget without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IDeleteBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.deleteBudget = mockSimpleGrpcMethod(
+                request,
+                expectedResponse,
+                null
+            );
+            client.deleteBudget(request, (err: {}, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            })
+        });
+
+        it('invokes deleteBudget with error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IDeleteBudgetRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock gRPC layer
+            client._innerApiCalls.deleteBudget = mockSimpleGrpcMethod(
+                request,
+                null,
+                error
+            );
+            client.deleteBudget(request, (err: FakeError, response: {}) => {
+                assert(err instanceof FakeError);
+                assert.strictEqual(err.code, FAKE_STATUS_CODE);
+                assert(typeof response === 'undefined');
+                done();
+            })
+        });
+    });
+    describe('listBudgets', () => {
+        it('invokes listBudgets without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IListBudgetsRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock Grpc layer
+            client._innerApiCalls.listBudgets = (actualRequest: {}, options: {}, callback: Callback) => {
+                assert.deepStrictEqual(actualRequest, request);
+                callback(null, expectedResponse);
+            };
+            client.listBudgets(request, (err: FakeError, response: {}) => {
+                assert.ifError(err);
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            });
+        });
+    });
+    describe('listBudgetsStream', () => {
+        it('invokes listBudgetsStream without error', done => {
+            const client = new budgetserviceModule.v1beta1.BudgetServiceClient({
+                credentials: {client_email: 'bogus', private_key: 'bogus'},
+                projectId: 'bogus',
+            });
+            // Mock request
+            const request: protosTypes.google.cloud.billing.budgets.v1beta1.IListBudgetsRequest = {};
+            // Mock response
+            const expectedResponse = {};
+            // Mock Grpc layer
+            client._innerApiCalls.listBudgets = (actualRequest: {}, options: {}, callback: Callback) => {
+                assert.deepStrictEqual(actualRequest, request);
+                callback(null, expectedResponse);
+            };
+            const stream = client.listBudgetsStream(request, {}).on('data', (response: {}) =>{
+                assert.deepStrictEqual(response, expectedResponse);
+                done();
+            }).on('error', (err: FakeError) => {
+                done(err);
+            });
+            stream.write(request);
+        });
+    });
 });
