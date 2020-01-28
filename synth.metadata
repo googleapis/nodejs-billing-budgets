@@ -1,12 +1,12 @@
 {
-  "updateTime": "2020-01-28T12:13:10.556345Z",
+  "updateTime": "2020-01-28T21:58:54.831340Z",
   "sources": [
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "8e981acfd9b97ea2f312f11bbaa7b6c16e412dea",
-        "internalRef": "291821782"
+        "sha": "e19209fac29731d0baf6d9ac23da1164f7bdca24",
+        "internalRef": "291999930"
       }
     },
     {
@@ -48,13 +48,7 @@
       "path": ".github/PULL_REQUEST_TEMPLATE.md"
     },
     {
-      "path": ".github/publish.yml"
-    },
-    {
       "path": ".github/release-please.yml"
-    },
-    {
-      "path": ".gitignore"
     },
     {
       "path": ".jsdoc.js"
@@ -171,15 +165,6 @@
       "path": ".prettierrc"
     },
     {
-      "path": ".readme-partials.yml"
-    },
-    {
-      "path": ".repo-metadata.json"
-    },
-    {
-      "path": "CHANGELOG.md"
-    },
-    {
       "path": "CODE_OF_CONDUCT.md"
     },
     {
@@ -193,12 +178,6 @@
     },
     {
       "path": "codecov.yaml"
-    },
-    {
-      "path": "linkinator.config.json"
-    },
-    {
-      "path": "package.json"
     },
     {
       "path": "protos/google/cloud/billing/budgets/v1beta1/budget_model.proto"
@@ -222,18 +201,6 @@
       "path": "samples/README.md"
     },
     {
-      "path": "samples/package.json"
-    },
-    {
-      "path": "samples/quickstart.js"
-    },
-    {
-      "path": "samples/system-test/.eslintrc.yml"
-    },
-    {
-      "path": "samples/system-test/samples.js"
-    },
-    {
       "path": "src/index.ts"
     },
     {
@@ -249,19 +216,13 @@
       "path": "src/v1beta1/index.ts"
     },
     {
-      "path": "synth.metadata"
+      "path": "system-test/fixtures/sample/src/index.js"
     },
     {
-      "path": "synth.py"
-    },
-    {
-      "path": "system-test/.eslintrc.yml"
+      "path": "system-test/fixtures/sample/src/index.ts"
     },
     {
       "path": "system-test/install.ts"
-    },
-    {
-      "path": "system-test/system.js"
     },
     {
       "path": "test/gapic-budget_service-v1beta1.ts"
@@ -271,9 +232,6 @@
     },
     {
       "path": "tslint.json"
-    },
-    {
-      "path": "webpack.config.js"
     }
   ]
 }
