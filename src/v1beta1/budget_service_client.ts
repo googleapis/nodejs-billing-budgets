@@ -414,6 +414,10 @@ export class BudgetServiceClient {
   /**
    * Updates a budget and returns the updated budget.
    *
+   * WARNING: There are some fields exposed on the Google Cloud Console that
+   * aren’t available on this API. Budget fields that are not exposed in
+   * this API will not be changed by this method.
+   *
    * @param {Object} request
    *   The request object that will be sent.
    * @param {google.cloud.billing.budgets.v1beta1.Budget} request.budget
@@ -502,6 +506,11 @@ export class BudgetServiceClient {
   ): void;
   /**
    * Returns a budget.
+   *
+   * WARNING: There are some fields exposed on the Google Cloud Console that
+   * aren’t available on this API. When reading from the API, you will not
+   * see these fields in the return value, though they may have been set
+   * in the Cloud Console.
    *
    * @param {Object} request
    *   The request object that will be sent.
@@ -663,6 +672,11 @@ export class BudgetServiceClient {
   ): void;
   /**
    * Returns a list of budgets for a billing account.
+   *
+   * WARNING: There are some fields exposed on the Google Cloud Console that
+   * aren’t available on this API. When reading from the API, you will not
+   * see these fields in the return value, though they may have been set
+   * in the Cloud Console.
    *
    * @param {Object} request
    *   The request object that will be sent.
