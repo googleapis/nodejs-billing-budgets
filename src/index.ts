@@ -23,4 +23,4 @@ export {v1beta1, BudgetServiceClient};
 // tslint:disable-next-line no-default-export
 export default {v1beta1, BudgetServiceClient};
 import * as protos from '../protos/protos';
-export {protos};
+export {protos}
