@@ -49,6 +49,6 @@
     "node": ">=8.10.0"
   },
   "dependencies": {
-    "google-gax": "^1.7.5"
+    "google-gax": "^2.0.0"
   }
 }
