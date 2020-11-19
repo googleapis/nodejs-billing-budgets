@@ -228,18 +228,7 @@
                                 "(google.api.http).post": "/v1/{parent=billingAccounts/*}/budgets",
                                 "(google.api.http).body": "budget",
                                 "(google.api.method_signature)": "parent,budget"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "post": "/v1/{parent=billingAccounts/*}/budgets",
-                                    "body": "budget"
-                                  }
-                                },
-                                {
-                                  "(google.api.method_signature)": "parent,budget"
-                                }
-                              ]
+                              }
                             },
                             "UpdateBudget": {
                               "requestType": "UpdateBudgetRequest",
@@ -248,18 +237,7 @@
                                 "(google.api.http).patch": "/v1/{budget.name=billingAccounts/*/budgets/*}",
                                 "(google.api.http).body": "budget",
                                 "(google.api.method_signature)": "budget,update_mask"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "patch": "/v1/{budget.name=billingAccounts/*/budgets/*}",
-                                    "body": "budget"
-                                  }
-                                },
-                                {
-                                  "(google.api.method_signature)": "budget,update_mask"
-                                }
-                              ]
+                              }
                             },
                             "GetBudget": {
                               "requestType": "GetBudgetRequest",
@@ -267,17 +245,7 @@
                               "options": {
                                 "(google.api.http).get": "/v1/{name=billingAccounts/*/budgets/*}",
                                 "(google.api.method_signature)": "name"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "get": "/v1/{name=billingAccounts/*/budgets/*}"
-                                  }
-                                },
-                                {
-                                  "(google.api.method_signature)": "name"
-                                }
-                              ]
+                              }
                             },
                             "ListBudgets": {
                               "requestType": "ListBudgetsRequest",
@@ -285,17 +253,7 @@
                               "options": {
                                 "(google.api.http).get": "/v1/{parent=billingAccounts/*}/budgets",
                                 "(google.api.method_signature)": "parent"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "get": "/v1/{parent=billingAccounts/*}/budgets"
-                                  }
-                                },
-                                {
-                                  "(google.api.method_signature)": "parent"
-                                }
-                              ]
+                              }
                             },
                             "DeleteBudget": {
                               "requestType": "DeleteBudgetRequest",
@@ -303,17 +261,7 @@
                               "options": {
                                 "(google.api.http).delete": "/v1/{name=billingAccounts/*/budgets/*}",
                                 "(google.api.method_signature)": "name"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "delete": "/v1/{name=billingAccounts/*/budgets/*}"
-                                  }
-                                },
-                                {
-                                  "(google.api.method_signature)": "name"
-                                }
-                              ]
+                              }
                             }
                           }
                         },
@@ -637,15 +585,7 @@
                               "options": {
                                 "(google.api.http).post": "/v1beta1/{parent=billingAccounts/*}/budgets",
                                 "(google.api.http).body": "*"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "post": "/v1beta1/{parent=billingAccounts/*}/budgets",
-                                    "body": "*"
-                                  }
-                                }
-                              ]
+                              }
                             },
                             "UpdateBudget": {
                               "requestType": "UpdateBudgetRequest",
@@ -653,57 +593,28 @@
                               "options": {
                                 "(google.api.http).patch": "/v1beta1/{budget.name=billingAccounts/*/budgets/*}",
                                 "(google.api.http).body": "*"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "patch": "/v1beta1/{budget.name=billingAccounts/*/budgets/*}",
-                                    "body": "*"
-                                  }
-                                }
-                              ]
+                              }
                             },
                             "GetBudget": {
                               "requestType": "GetBudgetRequest",
                               "responseType": "Budget",
                               "options": {
                                 "(google.api.http).get": "/v1beta1/{name=billingAccounts/*/budgets/*}"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "get": "/v1beta1/{name=billingAccounts/*/budgets/*}"
-                                  }
-                                }
-                              ]
+                              }
                             },
                             "ListBudgets": {
                               "requestType": "ListBudgetsRequest",
                               "responseType": "ListBudgetsResponse",
                               "options": {
                                 "(google.api.http).get": "/v1beta1/{parent=billingAccounts/*}/budgets"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "get": "/v1beta1/{parent=billingAccounts/*}/budgets"
-                                  }
-                                }
-                              ]
+                              }
                             },
                             "DeleteBudget": {
                               "requestType": "DeleteBudgetRequest",
                               "responseType": "google.protobuf.Empty",
                               "options": {
                                 "(google.api.http).delete": "/v1beta1/{name=billingAccounts/*/budgets/*}"
-                              },
-                              "parsedOptions": [
-                                {
-                                  "(google.api.http)": {
-                                    "delete": "/v1beta1/{name=billingAccounts/*/budgets/*}"
-                                  }
-                                }
-                              ]
+                              }
                             }
                           }
                         },
