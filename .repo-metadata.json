@@ -12,5 +12,5 @@
   "name": "billingbudgets",
   "issue_tracker": "https://issuetracker.google.com/savedsearches/559770",
   "api_shortname": "billingbudgets",
-  "library_type": ""
+  "library_type": "GAPIC_AUTO"
 }
